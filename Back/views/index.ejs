@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+</head>
+<body>
+    <h1>Ingrese producto y cantidad:</h1>
+
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="Producto" name="name">
+        <input type="text" placeholder="Cantidad" name="quote">
+        <button type="submit">Submit</button>
+      </form>
+
+      <!-- <%= quotes %> -->
+
+      <h2> Lista de productos </h2>
+
+      <ul class="quotes">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < quotes.length; i++) {%>
+          <li class="quote">
+            <!-- Output name from the iterated quote object -->
+            <span><%= quotes[i].name %></span>:
+            <!-- Output quote from the iterated quote object -->
+            <span><%= quotes[i].quote %></span>
+          </li>
+        <% } %>
+      </ul>
+
+      <div>
+        <h2>Modificar una venta: </h2>
+        <p>
+          Reemplazar la información de una venta (Cambia "Bananos" por "Platanos")
+        </p>
+        <button id="update-button">Modificar</button>
+      </div>
+
+<!--       <img src="https://i.imgflip.com/3cnphq.png"  width="800" height="600"> -->
+
+
+
+
+      <div>
+        <h2>Eliminar producto</h2>
+        <p>
+          Elimina "Platanos"
+        </p>
+        <button id="delete-button">Eliminar</button>
+      </div>
+      <div id="message"></div>
+
+      <script src="/main.js"></script>
+</body>
+</html>
