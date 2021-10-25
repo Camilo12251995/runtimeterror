@@ -4,6 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 const ObjectID = require('mongodb').ObjectId
 const cors = require('cors');
 const router = require('express').Router();
+const path = require('path');
 
 MongoClient.connect('mongodb+srv://Camilin:Camilo2413@cluster0.zboep.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useUnifiedTopology: true })
   .then(client => {
@@ -425,3 +426,9 @@ MongoClient.connect('mongodb+srv://Camilin:Camilo2413@cluster0.zboep.mongodb.net
   })
 
   .catch(error => console.error(error))
+
+  app.use(express.static(path.join(__dirname, '../Front/build')))
+
+  app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname,'../Front/build', 'index.html'));
+  })

@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server_vendedores.js",
+    "build": "react-scripts build",
     "dev1": "nodemon server_vendedores.js",
     "dev2": "nodemon server_productos.js",
     "dev3": "nodemon server_ventas.js",
     "dev4": "nodemon server_estado_ventas.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Front && npm run build --prefix Front"
 
   },
   "author": "",
